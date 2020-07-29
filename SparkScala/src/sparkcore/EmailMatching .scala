@@ -3,9 +3,12 @@ package sparkcore
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import java.util.regex.Pattern
+import org.apache.log4j._
 
 object EmailMatching  {
   def main(args: Array[String]): Unit = {
+    
+    Logger.getLogger("org").setLevel(Level.ERROR)
     
     val regEX = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
                 "[a-zA-Z0-9_+&*-]+)*@" + 
