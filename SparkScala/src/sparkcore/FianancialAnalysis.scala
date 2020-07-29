@@ -2,10 +2,13 @@ package sparkcore
 
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
+import org.apache.log4j._
 
 object FianancialAnalysis {
   def main(args: Array[String]): Unit = {
     
+     Logger.getLogger("org").setLevel(Level.ERROR)
+     
     val conf = new SparkConf().setMaster("local[*]").setAppName("FinancialAnalysis");
     
     val context = new SparkContext(conf);
@@ -20,7 +23,7 @@ object FianancialAnalysis {
     
     canadaRDD.persist();
     
-    canadaRDD.foreach(println);
+    //canadaRDD.foreach(println);
     
     println(canadaRDD.count());
     
